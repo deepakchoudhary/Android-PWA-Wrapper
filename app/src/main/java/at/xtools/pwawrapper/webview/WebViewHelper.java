@@ -94,7 +94,7 @@ public class WebViewHelper {
         webSettings.setDatabaseEnabled(true);
 
         // enable mixed content mode conditionally
-        if (Constants.ENABLE_MIXED_CONTENT
+        if (Constants.Companion.getENABLE_MIXED_CONTENT()
                 && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             webSettings.setMixedContentMode(WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE);
         }
@@ -103,13 +103,13 @@ public class WebViewHelper {
         forceCacheIfOffline();
 
         // set User Agent
-        if (Constants.OVERRIDE_USER_AGENT || Constants.POSTFIX_USER_AGENT) {
+        if (Constants.Companion.getOVERRIDE_USER_AGENT() || Constants.Companion.getPOSTFIX_USER_AGENT()) {
             String userAgent = "";
-            if (Constants.OVERRIDE_USER_AGENT) {
-                userAgent = Constants.USER_AGENT;
+            if (Constants.Companion.getOVERRIDE_USER_AGENT()) {
+                userAgent = Constants.Companion.getUSER_AGENT();
             }
-            if (Constants.POSTFIX_USER_AGENT) {
-                userAgent = userAgent + " " + Constants.USER_AGENT_POSTFIX;
+            if (Constants.Companion.getPOSTFIX_USER_AGENT()) {
+                userAgent = userAgent + " " + Constants.Companion.getUSER_AGENT_POSTFIX();
             }
             webSettings.setUserAgentString(userAgent);
         }
@@ -204,7 +204,7 @@ public class WebViewHelper {
     // handle external urls
     private boolean handleUrlLoad(WebView view, String url) {
         // prevent loading content that isn't ours
-        if (!url.startsWith(Constants.WEBAPP_URL)) {
+        if (!url.startsWith(Constants.Companion.getWEBAPP_URL())) {
             // stop loading
             view.stopLoading();
 
@@ -241,12 +241,12 @@ public class WebViewHelper {
 
     // load app startpage
     public void loadHome() {
-        webView.loadUrl(Constants.WEBAPP_URL);
+        webView.loadUrl(Constants.Companion.getWEBAPP_URL());
     }
 
     // load URL from intent
     public void loadIntentUrl(String url) {
-        if (!url.equals("") && url.contains(Constants.WEBAPP_HOST)) {
+        if (!url.equals("") && url.contains(Constants.Companion.getWEBAPP_HOST())) {
             webView.loadUrl(url);
         } else {
             // Fallback
