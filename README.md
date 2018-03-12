@@ -1,13 +1,14 @@
-# Android-PWA-Wrapper
+# Android-PWA-Wrapper-Kotlin
 
-A sample Android Wrapper application to create a native Android App from an offline-capable Progressive Web App.
+A sample Android Wrapper application to create a native Android App from an offline-capable Progressive Web App with KOTLIN SUPPORT.
 
-Drafted for the [Android App](https://play.google.com/store/apps/details?id=at.xtools.leasingrechner&utm_source=github.com&utm_medium=link&utm_campaign=store_visit) of my [Leasing Calculator](https://www.leasingrechnen.at) Web App using [React](https://github.com/facebook/react), [Redux](https://github.com/reactjs/redux), [Materialize.css](https://github.com/Dogfalo/materialize) and a lot of Offline-First love over at [leasingrechnen.at](https://www.leasingrechnen.at).
+Forked from https://github.com/xtools-at/Android-PWA-Wrapper where he has created the basic java thing ready.
+I thought it would be useful and fun to have kotlin support as well
 
 ## Why would I use a wrapper?
 I know, using a Wrapper-App to display a Website can feel a bit odd. But there are a few good reasons why you'd package your Web App like this.
 - If you've got a very sophisticated UI already, it might make sense not to rebuild it from scratch for multiple platforms, especally if it's a Single Page Application already, that doesn't "feel" like a Website.
-- There might be as well less competition for a given niche on App Stores, in comparison to Google directly. With [leasingrechnen.at](https://www.leasingrechnen.at), I've got easily into the Top 10 Apps on Google Play for my country, whereas Google Search put me on page 9 as the Site is relatively new.
+- There might be as well less competition for a given niche on App Stores, in comparison to Google directly.
 
 ## What it does
 - Sets up a WebView just the way PWAs/SPAs like it (e.g. enables App cache and DOM storage, ...).
@@ -32,7 +33,7 @@ I know, using a Wrapper-App to display a Website can feel a bit odd. But there a
 - Check `Constants.java` for more options
 - Build App in Android Studio
 
-### I don't accept Feature Requests, only Pull Requests :)
+### Only Pull Requests will be appreciated :)
 
 ## License
 [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html) - if you use it, we wanna see it!
