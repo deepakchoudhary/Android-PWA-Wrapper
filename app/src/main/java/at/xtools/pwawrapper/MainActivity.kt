@@ -10,8 +10,8 @@ import at.xtools.pwawrapper.webview.WebViewHelper
 
 class MainActivity : AppCompatActivity() {
     // Globals
-    private var uiManager: UIManager? = null
-    private var webViewHelper: WebViewHelper? = null
+    private lateinit var uiManager: UIManager
+    private lateinit var webViewHelper: WebViewHelper
     private var intentHandled = false
 
     protected override fun onCreate(savedInstanceState: Bundle?) {
