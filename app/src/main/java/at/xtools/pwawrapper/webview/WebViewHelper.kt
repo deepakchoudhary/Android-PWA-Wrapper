@@ -11,6 +11,8 @@ import android.net.Uri
 import android.os.Build
 import android.os.Handler
 import android.os.Message
+import android.support.v4.widget.SwipeRefreshLayout
+import android.view.ViewTreeObserver
 import android.webkit.CookieManager
 import android.webkit.WebChromeClient
 import android.webkit.WebResourceError
@@ -46,9 +48,12 @@ class WebViewHelper(// Instance variables
             return isAvailable
         }
 
+    
+
     init {
         this.webView = activity.findViewById<WebView>(R.id.webView)
         this.webSettings = webView.settings
+
     }
 
     // manipulate cache settings to make sure our PWA gets updated
@@ -240,3 +245,5 @@ class WebViewHelper(// Instance variables
         }
     }
 }
+
+

@@ -6,6 +6,7 @@ import android.content.res.Resources
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Build
+import android.support.v4.widget.SwipeRefreshLayout
 import android.util.TypedValue
 import android.view.View
 import android.view.animation.AccelerateInterpolator
@@ -20,6 +21,7 @@ import at.xtools.pwawrapper.R
 class UIManager(// Instance variables
         private val activity: Activity) {
     private val webView: WebView
+    private val mySwipeRefreshLayout: SwipeRefreshLayout
     private val progressSpinner: ProgressBar
     private val progressBar: ProgressBar
     private val offlineContainer: LinearLayout
@@ -30,7 +32,7 @@ class UIManager(// Instance variables
         this.progressSpinner = activity.findViewById<View>(R.id.progressSpinner) as ProgressBar
         this.offlineContainer = activity.findViewById<View>(R.id.offlineContainer) as LinearLayout
         this.webView = activity.findViewById<View>(R.id.webView) as WebView
-
+        this.mySwipeRefreshLayout = activity.findViewById<SwipeRefreshLayout>(R.id.swipeContainer)
         // set click listener for offline-screen
         offlineContainer.setOnClickListener {
             webView.loadUrl(Constants.WEBAPP_URL)
@@ -52,6 +54,7 @@ class UIManager(// Instance variables
             progressBar.visibility = View.VISIBLE
         } else {
             progressBar.visibility = View.INVISIBLE
+            mySwipeRefreshLayout.setRefreshing(false);
         }
 
         // get app screen back if loading is almost complete
@@ -104,4 +107,5 @@ class UIManager(// Instance variables
             iconWhite.recycle()
         }
     }
+
 }
